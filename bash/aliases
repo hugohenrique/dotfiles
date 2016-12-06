@@ -1,0 +1,3 @@
+alias ll="ls -FGlahs"
+alias tailf="tail -f"
+alias grep="grep --color=always"
