@@ -1,0 +1,62 @@
+execute pathogen#infect()
+
+syntax on
+
+filetype on
+filetype plugin on
+filetype indent on
+
+set nocompatible
+set encoding=utf-8
+set title
+set number
+set visualbell  " no beeping
+set noshowmode
+set incsearch
+set hlsearch
+
+set nobackup                        " Don't make a backup before overwriting a file
+set nowritebackup                   " And again
+set noswapfile                      " Use an SCM instead of swap files
+
+set backspace=indent,eol,start      " http://vim.wikia.com/wiki/Backspace_and_delete_problems
+
+set ts=4
+retab
+set expandtab
+set copyindent                      " copy the previous indentation on autoindenting
+set shiftround                      " use multiple of shiftwidth when indenting with '<' and '>'
+set showmatch                       " set show matching parenthesis
+set autoindent
+set laststatus=2                    " lines of status
+set cursorline
+set guioptions=aAce
+
+set background=light
+
+set clipboard=unnamed
+
+vmap <Tab> >gva
+vmap <S-Tab> <gv
+" format JSON
+map <leader>j !python -m json.tool<CR>
+map <C-n> :NERDTreeToggle<CR>
+map <C-l> gt
+map <C-h> gT
+
+" ctrlp
+let g:ctrlp_map                 = '<leader>t'
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_custom_ignore       = '\v[\/](node_modules|target|dist|vendor)|(\.(swp|ico|git))$'
+
+let g:airline_powerline_fonts      = 1
+let g:gitgutter_sign_column_always = 1
+let g:gitgutter_enabled            = 1
+let g:gitgutter_signs              = 1
+
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd FileType json setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype php setlocal ts=4 sts=4 sw=4
+autocmd FileType css setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType scss setlocal tabstop=2 softtabstop=2 shiftwidth=2

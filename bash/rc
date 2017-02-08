@@ -82,4 +82,3 @@ fi
 if [ -f /usr/share/bash_completion/bash_completion ]; then
   . /usr/share/bash_completion/bash_completion
 fi
-
