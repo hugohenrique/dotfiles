@@ -1,10 +1,20 @@
 execute pathogen#infect()
 
-syntax on
-
 filetype on
 filetype plugin on
 filetype indent on
+
+syntax enable
+
+if has('win32')
+    set guifont=Fira\ Code:h18     " Win32.
+elseif has('gui_macvim')
+    set guifont=Hack:h14           " OSX.
+    set termguicolors
+    colorscheme github
+else
+    set guifont=Fira\ Code:h18     " Linux.
+endif
 
 set nocompatible
 set encoding=utf-8
@@ -14,6 +24,7 @@ set visualbell  " no beeping
 set noshowmode
 set incsearch
 set hlsearch
+set linespace=4
 
 set nobackup                        " Don't make a backup before overwriting a file
 set nowritebackup                   " And again
@@ -31,9 +42,6 @@ set autoindent
 set laststatus=2                    " lines of status
 set cursorline
 set guioptions=aAce
-
-set background=light
-
 set clipboard=unnamed
 
 vmap <Tab> >gva
@@ -53,8 +61,10 @@ let g:airline_powerline_fonts      = 1
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_enabled            = 1
 let g:gitgutter_signs              = 1
+let g:airline_theme                = 'github'
 
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype twig setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd FileType json setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype php setlocal ts=4 sts=4 sw=4
