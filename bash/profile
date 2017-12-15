@@ -1,3 +1,4 @@
 if [ -e ~/.bashrc ]; then
   . ~/.bashrc
 fi
+export PATH="/usr/local/opt/logstash@5.6/bin:$PATH"

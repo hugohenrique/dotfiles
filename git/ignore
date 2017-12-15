@@ -9,5 +9,6 @@ Thumbs.db
 *.bak
 .vagrant
 vim/.netrwhist
+.docker-sync/
 .phpstorm_helpers
 npm-debug.log

@@ -14,12 +14,12 @@ function __prompt_command() {
   local COLOR_GREEN="\[\033[0;32m\]"
   local COLOR_BLUE="\[\033[0;34m\]";
   local COLOR_PURPLE="\[\033[0;35m\]"
-  
+
   # PS1 parts
   local USER="${COLOR_GREEN}\u${COLOR_OFF}"
   local HOST="${COLOR_PURPLE}\h${COLOR_OFF}"
   local WORKING_DIR="${COLOR_BLUE}\w${COLOR_OFF}"
-  
+
   PS1="${USER} at ${HOST} in ${WORKING_DIR}"
 
   if [ "${GIT_INFO}" != "" ]; then
@@ -63,7 +63,7 @@ export GIT_EDITOR=vim
 export PROMPT_COMMAND=__prompt_command
 export GIT_PS1_SHOWDIRTYSTATE=1
 export LS_COLORS="exfxcxdxcxegedabagacad"
-export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/sbin:$HOME/.yarn/bin:/usr/local/opt/gpg-agent/bin:$PATH"
 
 # ------------------------------------------------------------------------------
 # External scripts
@@ -82,3 +82,5 @@ fi
 if [ -f /usr/share/bash_completion/bash_completion ]; then
   . /usr/share/bash_completion/bash_completion
 fi
+
+export PATH="$HOME/.yarn/bin:$PATH"
