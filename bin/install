@@ -53,6 +53,9 @@ link_files bash/rc      ~/.bashrc
 link_files bash/profile ~/.bash_profile
 link_files bash/aliases ~/.bash_aliases
 
+# zsh
+link_files zsh/rc ~/.zshrc
+
 # home
 link_files inputrc  ~/.inputrc
 link_files screenrc ~/.screenrc

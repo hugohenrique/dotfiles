@@ -7,32 +7,29 @@ filetype indent on
 syntax enable
 
 if has('win32')
-  set guifont=Fira\ Code:h14   " Win32
+  set guifont=Ubuntu\ Mono:h21   " Win32
 elseif has('gui_macvim')
-  set guifont=Fira\ Code:h14   " OSX
+  set guifont=Ubuntu\ Mono:h21   " OSX
   set termguicolors
   colorscheme github
 else
-  set guifont=Fira\ Code:h14  " Linux
+  set guifont=Ubuntu\ Mono:h21  " Linux
 endif
 
 set nocompatible
 set encoding=utf-8
 set title
 set number
-set visualbell  " no beeping
-" set noshowmode
-set incsearch
-set hlsearch
+set visualbell                      " no beeping
+set incsearch                       " Makes search act like search in modern browsers
+set hlsearch                        " Highlight search results
 set linespace=6
-
+set autoread
 set nobackup                        " Don't make a backup before overwriting a file
 set nowritebackup                   " And again
 set noswapfile                      " Use an SCM instead of swap files
-
 set backspace=indent,eol,start      " http://vim.wikia.com/wiki/Backspace_and_delete_problems
 set ts=4
-retab
 set expandtab
 set copyindent                      " copy the previous indentation on autoindenting
 set shiftround                      " use multiple of shiftwidth when indenting with '<' and '>'
@@ -43,6 +40,9 @@ set cursorline
 set guioptions=aAce
 set clipboard=unnamed
 set listchars=tab:>-
+set cmdheight=2
+
+retab
 
 vmap <Tab> >gva
 vmap <S-Tab> <gv
