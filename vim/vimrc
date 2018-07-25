@@ -7,13 +7,13 @@ filetype indent on
 syntax enable
 
 if has('win32')
-  set guifont=Ubuntu\ Mono:h21   " Win32
+  set guifont=Ubuntu\ Mono\ derivative\ Powerline:h21   " Win32
 elseif has('gui_macvim')
-  set guifont=Ubuntu\ Mono:h21   " OSX
+  set guifont=Ubuntu\ Mono\ derivative\ Powerline:h21   " OSX
   set termguicolors
-  colorscheme github
+  " colorscheme github
 else
-  set guifont=Ubuntu\ Mono:h21  " Linux
+  set guifont=Ubuntu\ Mono\ derivative\ Powerline:h21  " Linux
 endif
 
 set nocompatible
@@ -55,7 +55,7 @@ map <C-h> gT
 " ctrlp
 let g:ctrlp_map                 = '<leader>t'
 let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_custom_ignore       = '\v[\/](node_modules|target|dist|vendor)|(\.(swp|ico|git))$'
+let g:ctrlp_custom_ignore       = '\v[\/](node_modules|target|dist|vendor)|(\.(swp|ico|git|DS_Store))$'
 
 let g:airline_powerline_fonts      = 1
 let g:airline_theme                = 'github'
@@ -66,6 +66,7 @@ let g:gitgutter_signs              = 1
 
 let g:nerdtree_tabs_open_on_console_startup = 0
 let g:nerdtree_tabs_open_on_new_tab         = 1
+let NERDTreeShowHidden                      = 1
 
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype twig setlocal ts=2 sts=2 sw=2
