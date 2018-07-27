@@ -9,21 +9,24 @@ syntax enable
 if has('win32')
   set guifont=Ubuntu\ Mono\ derivative\ Powerline:h21   " Win32
 elseif has('gui_macvim')
-  set guifont=Ubuntu\ Mono\ derivative\ Powerline:h21   " OSX
+  set guifont=Hack:h21   " OSX
   set termguicolors
-  " colorscheme github
 else
   set guifont=Ubuntu\ Mono\ derivative\ Powerline:h21  " Linux
 endif
 
+set background=light
+colorscheme solarized
+
 set nocompatible
 set encoding=utf-8
+set termencoding=utf-8
 set title
 set number
 set visualbell                      " no beeping
 set incsearch                       " Makes search act like search in modern browsers
 set hlsearch                        " Highlight search results
-set linespace=6
+set linespace=0
 set autoread
 set nobackup                        " Don't make a backup before overwriting a file
 set nowritebackup                   " And again
@@ -40,7 +43,9 @@ set cursorline
 set guioptions=aAce
 set clipboard=unnamed
 set listchars=tab:>-
-set cmdheight=2
+set cmdheight=1
+set signcolumn=yes
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 retab
 
@@ -49,18 +54,23 @@ vmap <S-Tab> <gv
 " format JSON
 map <leader>j !python -m json.tool<CR>
 map <C-n> :NERDTreeToggle<CR>
+
 map <C-l> gt
 map <C-h> gT
+
+nnoremap <C-e> <C-w>
+
+let g:autotagTagsFile=".tags"
 
 " ctrlp
 let g:ctrlp_map                 = '<leader>t'
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_custom_ignore       = '\v[\/](node_modules|target|dist|vendor)|(\.(swp|ico|git|DS_Store))$'
+let g:ctrlp_user_command        = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
+"let g:gitgutter_sign_column_always = 1
+let g:airline_theme                = 'solarized'
 let g:airline_powerline_fonts      = 1
-let g:airline_theme                = 'github'
-
-let g:gitgutter_sign_column_always = 1
 let g:gitgutter_enabled            = 1
 let g:gitgutter_signs              = 1
 
