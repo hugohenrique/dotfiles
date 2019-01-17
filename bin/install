@@ -36,13 +36,21 @@ ensure_dir() {
 }
 
 setup_git() {
+    brew install git bash-completion
     link_files git/git-completion.bash ~/.git-completion.bash
     link_files git/config ~/.gitconfig
     link_files git/ignore ~/.gitignore
 }
 
+setup_zsh_iterm() {
+  sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+  brew install zsh-syntax-highlighting
+}
+
 # git
 setup_git
+setup_zsh_iterm
 
 # vim
 link_files vim ~/.vim
