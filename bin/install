@@ -5,52 +5,69 @@ set -eo pipefail
 CURRENT=$(pwd)
 
 info() {
-    printf "  [ \033[00;34m..\033[0m ] %s" "$1"
+  printf "  [ \033[00;34m..\033[0m ] %s" "$1"
 }
 
 success() {
-    printf "\r\033[2K  [ \033[00;32mOK\033[0m ] %s\n" "$1"
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] %s\n" "$1"
 }
 
 fail() {
-    printf "\r\033[2K  [\033[0;31mFAIL\033[0m] %s\n" "$1"
-    echo ''
-    exit
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] %s\n" "$1"
+  echo ''
+  exit
 }
 
 link_files() {
-    if [ -L "$2" ] ; then
-        rm -f "$2"
-    fi
-
-    ln -s "$CURRENT/$1" "$2"
-    success "linked $1 to $2"
+  if [ -L "$2" ]; then
+    rm -f "$2"
+  fi
+  ln -s "$CURRENT/$1" "$2"
+  success "linked $1 to $2"
 }
 
 ensure_dir() {
-    if [ ! -d "$1" ] ; then
-        mkdir -p "$1"
-
-        success "created directory $1"
-    fi
+  if [ ! -d "$1" ] ; then
+    mkdir -p "$1"
+    success "created directory $1"
+  fi
 }
 
 setup_git() {
-    brew install git bash-completion
-    link_files git/git-completion.bash ~/.git-completion.bash
-    link_files git/config ~/.gitconfig
-    link_files git/ignore ~/.gitignore
+  brew install git bash-completion
+  link_files git/git-completion.bash ~/.git-completion.bash
+  link_files git/config ~/.gitconfig
+  link_files git/ignore ~/.gitignore
 }
 
 setup_zsh_iterm() {
-  sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-  git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-  brew install zsh-syntax-highlighting
+  if [ -d "$HOME/.oh-my-zsh" ]; then
+    echo "Removing $HOME/.oh-my-zsh directory"
+    rm -rf "$HOME/.oh-my-zsh"
+  else
+    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+    brew install zsh-syntax-highlighting
+  fi
 }
 
-# git
+setup_symfony_cli() {
+  sh -c "$(curl -sS https://get.symfony.com/cli/installer)"
+  export PATH="$HOME/.symfony/bin:$PATH"
+  mv ~/.symfony/bin/symfony /usr/local/bin/symfony
+}
+
+setup_composer() {
+  if [ ! -x /usr/local/bin/composer ]; then
+    curl -siS https://getcomposer.org/installer | php
+    mv composer.phar /usr/local/bin/composer
+  fi
+}
+
 setup_git
 setup_zsh_iterm
+setup_symfony_cli
+setup_composer
 
 # vim
 link_files vim ~/.vim
