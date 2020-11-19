@@ -41,10 +41,7 @@ setup_git() {
 }
 
 setup_zsh_iterm() {
-  if [ -d "$HOME/.oh-my-zsh" ]; then
-    echo "Removing $HOME/.oh-my-zsh directory"
-    rm -rf "$HOME/.oh-my-zsh"
-  else
+  if [ ! -d "$HOME/.oh-my-zsh" ]; then
     sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
     brew install zsh-syntax-highlighting
