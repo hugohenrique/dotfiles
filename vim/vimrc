@@ -15,8 +15,7 @@ else
   set guifont=Ubuntu\ Mono\ derivative\ Powerline:h21  " Linux
 endif
 
-set background=light
-colorscheme solarized
+set background=dark
 
 set nocompatible
 set encoding=utf-8
