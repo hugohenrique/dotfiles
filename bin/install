@@ -71,9 +71,9 @@ link_files vim ~/.vim
 link_files vim/vimrc ~/.vimrc
 
 # bash
-link_files bash/rc      ~/.bashrc
-link_files bash/profile ~/.bash_profile
-link_files bash/aliases ~/.bash_aliases
+# link_files bash/rc      ~/.bashrc
+# link_files bash/profile ~/.bash_profile
+# link_files bash/aliases ~/.bash_aliases
 
 # zsh
 link_files zsh/rc ~/.zshrc
@@ -84,7 +84,7 @@ link_files screenrc ~/.screenrc
 
 # Generates a ssh key for my user
 if [ ! -f ~/.ssh/id_rsa ]; then
-    ssh-keygen -t rsa -b 4096 -C "contato@hugohenrique.com.br" -N "" -f ~/.ssh/id_rsa -q
+  ssh-keygen -t rsa -b 4096 -C "contato@hugohenrique.com.br" -N "" -f ~/.ssh/id_rsa -q
 fi
 
 echo ''

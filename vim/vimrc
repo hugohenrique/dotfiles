@@ -9,7 +9,7 @@ syntax enable
 if has('win32')
   set guifont=Ubuntu\ Mono\ derivative\ Powerline:h21   " Win32
 elseif has('gui_macvim')
-  set guifont=Hack:h21   " OSX
+  set guifont=JetBrains\ Mono:h19   " OSX
   set termguicolors
 else
   set guifont=Ubuntu\ Mono\ derivative\ Powerline:h21  " Linux
@@ -45,6 +45,7 @@ set listchars=tab:>-
 set cmdheight=1
 set signcolumn=yes
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+set columnspace=-1
 
 retab
 

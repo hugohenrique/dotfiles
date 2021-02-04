@@ -20,3 +20,4 @@ source ~/workspace/dotfiles/shared/export.sh
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$PATH"
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
