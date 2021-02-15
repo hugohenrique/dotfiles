@@ -25,7 +25,7 @@ set number
 set visualbell                      " no beeping
 set incsearch                       " Makes search act like search in modern browsers
 set hlsearch                        " Highlight search results
-set linespace=0
+set linespace=8
 set autoread
 set nobackup                        " Don't make a backup before overwriting a file
 set nowritebackup                   " And again
@@ -66,17 +66,13 @@ let g:autotagTagsFile=".tags"
 let g:ctrlp_map                 = '<leader>t'
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_custom_ignore       = '\v[\/](node_modules|target|dist|vendor)|(\.(swp|ico|git|DS_Store))$'
-let g:ctrlp_user_command        = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:ctrlp_user_command        = ['.git', 'cd %s && git ls-files . -co - exclude-standard', 'find %s -type f']
 
 "let g:gitgutter_sign_column_always = 1
 let g:airline_theme                = 'solarized'
 let g:airline_powerline_fonts      = 1
 let g:gitgutter_enabled            = 1
 let g:gitgutter_signs              = 1
-
-let g:nerdtree_tabs_open_on_console_startup = 0
-let g:nerdtree_tabs_open_on_new_tab         = 1
-let NERDTreeShowHidden                      = 1
 
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype twig setlocal ts=2 sts=2 sw=2
