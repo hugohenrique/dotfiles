@@ -8,7 +8,6 @@ cd ~/.vim/bundle
   https://github.com/airblade/vim-gitgutter
   https://github.com/ycm-core/YouCompleteMe
   https://github.com/vim-airline/vim-airline
-  
 EOF
 ) | \
 while read rep ;do
