@@ -1,10 +1,8 @@
 execute pathogen#infect()
 
 filetype on
-filetype plugin on
-filetype indent on
-
-syntax enable
+syntax on
+filetype plugin indent on
 
 if has('win32')
   set guifont=Ubuntu\ Mono\ derivative\ Powerline:h21   " Win32
@@ -15,7 +13,7 @@ else
   set guifont=Ubuntu\ Mono\ derivative\ Powerline:h21  " Linux
 endif
 
-set background=dark
+" set background=dark
 
 set nocompatible
 set encoding=utf-8
@@ -39,13 +37,14 @@ set showmatch                       " set show matching parenthesis
 set autoindent
 set laststatus=2                    " lines of status
 set cursorline
-set guioptions=aAce
+set guioptions+=e
 set clipboard=unnamed
 set listchars=tab:>-
 set cmdheight=1
 set signcolumn=yes
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set columnspace=-1
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 retab
 
@@ -53,20 +52,31 @@ vmap <Tab> >gva
 vmap <S-Tab> <gv
 " format JSON
 map <leader>j !python -m json.tool<CR>
-map <C-n> :NERDTreeToggle<CR>
 
-map <C-l> gt
-map <C-h> gT
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 
-nnoremap <C-e> <C-w>
+" Alternative tab navigation (cmd+number)
+map <D-1> 1gt  
+map <D-2> 2gt  
+map <D-3> 3gt
+map <D-4> 4gt
+map <D-5> 5gt
+map <D-6> 6gt
+map <D-7> 7gt
+map <D-8> 8gt
+map <D-9> 9gt
 
 let g:autotagTagsFile=".tags"
 
 " ctrlp
 let g:ctrlp_map                 = '<leader>t'
+let g:ctrlp_cmd                 = 'CtrlP'
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_custom_ignore       = '\v[\/](node_modules|target|dist|vendor)|(\.(swp|ico|git|DS_Store))$'
-let g:ctrlp_user_command        = ['.git', 'cd %s && git ls-files . -co - exclude-standard', 'find %s -type f']
+let g:ctrlp_user_command        = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 "let g:gitgutter_sign_column_always = 1
 let g:airline_theme                = 'solarized'

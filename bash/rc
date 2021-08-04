@@ -3,9 +3,9 @@
 # ------------------------------------------------------------------------------
 . ~/.bash_aliases
 
-if [ -e ${GIT_COMPLETION_FILE} ]; then
-  . ${GIT_COMPLETION_FILE}
-fi
+#if [ -e ${GIT_COMPLETION_FILE} ]; then
+#  . ${GIT_COMPLETION_FILE}
+#fi
 
 if [ -f /usr/local/bin/brew ]; then
   BREW_PREFIX=$(brew --prefix)

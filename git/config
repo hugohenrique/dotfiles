@@ -1,6 +1,6 @@
 [core]
     ui = true
-	editor = code
+	editor = vim
     autocrlf = false
     whitespace = trailing-space,space-before-tab
     excludesfile = /Users/hugohenrique/.gitignore
