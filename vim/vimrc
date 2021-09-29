@@ -43,7 +43,6 @@ set listchars=tab:>-
 set cmdheight=1
 set signcolumn=yes
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-set columnspace=-1
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 retab
