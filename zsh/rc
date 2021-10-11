@@ -8,17 +8,12 @@ ZSH_THEME="robbyrussell"
 
 CASE_SENSITIVE="true"
 
-plugins=(
-  git
-  powerlevel9k
-  zsh-syntax-highlighting
-  zsh-autosuggestions
-)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 source ~/workspace/dotfiles/shared/export.sh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$PATH"
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"

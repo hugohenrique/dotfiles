@@ -5,7 +5,7 @@ set -eo pipefail
 CURRENT=$(pwd)
 
 info() {
-  printf "  [ \033[00;34m..\033[0m ] %s" "$1"
+  printf " [ \033[00;34m..\033[0m ] %s" "$1"
 }
 
 success() {
@@ -44,9 +44,9 @@ setup_zsh_iterm() {
   echo "$HOME";
   if [ ! -d "$HOME/.oh-my-zsh" ]; then
     sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-    git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-    brew install zsh-syntax-highlighting
-    brew install zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh}/plugins/zsh-syntax-highlighting
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh}/plugins/zsh-autosuggestions
+    sudo gem install colorls
   fi
 }
 
