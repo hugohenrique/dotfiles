@@ -4,6 +4,7 @@
     autocrlf = false
     whitespace = trailing-space,space-before-tab
     excludesfile = /Users/hugohenrique/.gitignore
+	ignorecase = false
 [user]
 	name = Hugo Henrique
 	email = contato@hugohenrique.com.br
@@ -23,6 +24,6 @@
 [push]
     default = current
 [pull]
-    rebase = preserve
+	rebase = true
 [diff]
     compactionHeuristic = 1

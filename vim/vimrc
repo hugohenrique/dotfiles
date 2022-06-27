@@ -7,8 +7,9 @@ filetype plugin indent on
 if has('win32')
   set guifont=Ubuntu\ Mono\ derivative\ Powerline:h21   " Win32
 elseif has('gui_macvim')
-  set guifont=JetBrains\ Mono:h19   " OSX
+  set guifont=JetBrains\ Mono:h17   " OSX
   set termguicolors
+  set columnspace=-1
 else
   set guifont=Ubuntu\ Mono\ derivative\ Powerline:h21  " Linux
 endif
